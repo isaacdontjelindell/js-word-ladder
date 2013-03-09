@@ -1,16 +1,17 @@
-var queue = new Queue();
-var used_words = new Set();
-
+// Isaac Dontje Lindell
+// JavaScript word ladder
+// https://github.com/isaacdontjelindell/js-word-ladder
 
 function wordLadder(start, end) {
-    used_words.add(start); // TODO should this be in findNextSteps?
+    used_words.add(start); 
     
     stack = new Stack(); // just an empty stack for now
     stack.push(start);
 
     findNextSteps(start, stack);
-    ladder = iterate(end);
-    console.log(ladder.toString());
+    ladder = iterate(end); // this should find us a valid ladder
+    if(!ladder) { console.log("Failed to find a valid ladder between " + start + " and " + end); }
+    else { console.log(ladder.toString()); }
 }
 
 function findNextSteps(start_word, current_stack) {
@@ -41,13 +42,12 @@ function iterate(end_word) {
         var current_stack = queue.dequeue(); //stack containing a possible ladder
         var top_word = current_stack.peek();
 
-        if(top_word == end_word) { return current_stack; }  // we're done
+        if(top_word == end_word) { return current_stack; } // found a valid ladder - we're done
         else {
             findNextSteps(top_word, current_stack);       
         }
     }
-    console.log("Failed to find a ladder.");
-    return false;
+    return false; // failed to find a ladder
 }
 
 function findNumberOfDifferences(word1, word2) {
@@ -60,26 +60,14 @@ function findNumberOfDifferences(word1, word2) {
 }
 
 function cloneStack(orig_stack) {
+    // returns a clone (deep copy) of orig_stack.
+    // This uses some special methods in my stack class that kinda smell - TODO reevaluate??
     new_stack = new Stack();
     new_stack.setArray(orig_stack.asArray());
     return new_stack;
 }
 
-wordLadder("frat", "blue");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+var queue = new Queue();
+var used_words = new Set();
+wordLadder("poop", "mmbo");
 

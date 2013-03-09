@@ -12,18 +12,22 @@ function Set() {
     }
 
     this.contains = function(o) {
-        // is it more efficient to implement a hashmap or just use indexOf?
+        // TODO is it more efficient to implement a hashmap or just use indexOf?
         if(set.indexOf(o) != -1) { return true; }
         else { return false; }
+    }
+
+    this.size = function() {
+        return set.length;
     }
 }
 
 function testSet() {
-    var set = new Set()
+    var set = new Set();
 
-    set.add("hello")
-    set.add("foo")
-    set.add("bar")
+    set.add("hello");
+    set.add("foo");
+    set.add("bar");
 
     console.log("hello: " + set.contains("hello"));
     console.log("foo: " + set.contains("foo"));
