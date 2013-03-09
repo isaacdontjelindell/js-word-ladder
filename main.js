@@ -1,17 +1,14 @@
-var word_len = 3;
-var start_word = "bar";
-var end_word = "tea";
+var queue = new Queue();
+var used_words = new Set();
+
 
 function wordLadder(start, end) {
-    used_words = new Set();
-    queue = new Queue();
-
     used_words.add(start); // TODO should this be in findNextSteps?
 
-    queue = findNextSteps(start, queue, used_words);
+    findFirstSteps(start);
 }
 
-function findNextSteps(word, queue, used) {
+function findFirstSteps(word) {
     //Get the starting word and search through the dictionary to find all words that
     //are one letter different, and have not already been used. 
     var dict;
@@ -31,7 +28,7 @@ function findNextSteps(word, queue, used) {
             }
         }
     }
-    return queue;
+    return true;
 }
 
 function findNumberOfDifferences(word1, word2) {
