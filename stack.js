@@ -12,9 +12,23 @@ function Stack() {
         }
     }
 
+    this.peek = function() { return stack[stack.length - 1]; }
+
     this.isEmpty = function() { return (stack.length == 0); }
 
     this.size = function() { return stack.length; }
+
+    this.asArray = function() {
+        // this is a method that I'm using to externally clone a stack
+        // .slice(0) is a trick to return a *copy* of the array.
+        return stack.slice(0);
+    }
+
+    this.setArray = function(new_array) {
+        // BE VERY CAREFUL- this replaces the contents of this stack with
+        // whatever is in new_array
+        stack = new_array;
+    }
 
     this.toString = function() {
         str = 'bottom: ';
