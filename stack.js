@@ -1,4 +1,4 @@
-function Stack() {
+module.exports = function Stack() {
     
     var stack = []
 
@@ -32,3 +32,4 @@ function testStack() {
     console.log(stack.pop());
     console.log(stack.pop());
 }
+

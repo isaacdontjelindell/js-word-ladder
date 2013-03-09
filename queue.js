@@ -1,4 +1,4 @@
-function Queue() {
+module.exports = function Queue() {
     var queue = []
 
     this.enqueue = function(o) { queue.push(o); }

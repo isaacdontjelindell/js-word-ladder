@@ -1,4 +1,4 @@
-function Set() {
+module.exports = function Set() {
     var set = []
 
     this.add = function(o) {
@@ -29,3 +29,4 @@ function testSet() {
     console.log("foo: " + set.contains("foo"));
     console.log("test: " + set.contains("test"));
 }
+
