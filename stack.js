@@ -1,4 +1,4 @@
-module.exports = function Stack() {
+function Stack() {
     
     var stack = []
 
@@ -15,6 +15,14 @@ module.exports = function Stack() {
     this.isEmpty = function() { return (stack.length == 0); }
 
     this.size = function() { return stack.length; }
+
+    this.toString = function() {
+        str = 'bottom: ';
+        for(var i=0; i<stack.length; i++) {
+            str += stack[i] + " "
+        }
+        return str;
+    }
 }
 
 function testStack() {

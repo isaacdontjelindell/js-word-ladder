@@ -1,4 +1,4 @@
-module.exports = function Queue() {
+function Queue() {
     var queue = []
 
     this.enqueue = function(o) { queue.push(o); }
@@ -14,6 +14,14 @@ module.exports = function Queue() {
     this.isEmpty = function() { return (queue.length == 0); }
 
     this.size = function() { return queue.length; }
+    
+    this.toString = function() { 
+        var str = "";
+        for(var i=0; i<queue.length; i++) {
+            str += queue[i].toString() + "\n";
+        }
+        return str;
+    }
 }
 
 function testQueue() {

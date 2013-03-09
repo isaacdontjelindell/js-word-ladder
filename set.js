@@ -1,4 +1,4 @@
-module.exports = function Set() {
+function Set() {
     var set = []
 
     this.add = function(o) {
