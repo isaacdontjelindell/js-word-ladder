@@ -31,11 +31,11 @@ function Stack() {
     }
 
     this.toString = function() {
-        str = 'bottom: ';
+        str = 'BOTTOM: ';
         for(var i=0; i<stack.length; i++) {
             str += stack[i] + " "
         }
-        return str;
+        return str += ":TOP";
     }
 }
 
