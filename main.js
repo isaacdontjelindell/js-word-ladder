@@ -2,7 +2,18 @@
 // JavaScript word ladder
 // https://github.com/isaacdontjelindell/js-word-ladder
 
-function wordLadder(start, end) {
+
+/* TODO
+   * Try using permutations algorithm - compare with possible permutations of each word
+        instead of every word in wordlist
+*/
+
+var queue = new Queue();
+var used_words = new Set();
+
+function wordLadder() {
+    var start = document.getElementById("word1").value
+    var end = document.getElementById("word2").value
     used_words.add(start); 
     
     stack = new Stack(); // just an empty stack for now
@@ -11,7 +22,11 @@ function wordLadder(start, end) {
     findNextSteps(start, stack);
     ladder = iterate(end); // this should find us a valid ladder
     if(!ladder) { console.log("Failed to find a valid ladder between " + start + " and " + end); }
-    else { console.log(ladder.toString()); }
+    else {
+        queue = new Queue();
+        used_words = new Set();
+        console.log(ladder.toString()); 
+    }
 }
 
 function findNextSteps(start_word, current_stack) {
@@ -67,7 +82,4 @@ function cloneStack(orig_stack) {
     return new_stack;
 }
 
-var queue = new Queue();
-var used_words = new Set();
-wordLadder("poop", "mmbo");
 

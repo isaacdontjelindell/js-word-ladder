@@ -306,7 +306,7 @@ fourLetterWords = [ 'fawn', 'foud', 'foun', 'hatt', 'foul', 'wuzu', 'four', 'der
 'degu', 'raun', 'lone', 'crig', 'acca', 'wede', 'crib', 'cric', 'nepa', 'miki',
 'long', 'rink', 'reim', 'rine', 'rind', 'ring', 'fiji', 'kuan', 'cris', 'bito',
 'city', 'mose', 'biti', 'bite', 'uric', 'tode', 'uria', 'imam', 'wing', 'mese',
-'juga', 'bitt', 'cite', 'bobo', 'anus', 'copa', 'pomp', 'bute', 'cope', 'eyey',
+'bitt', 'cite', 'bobo', 'anus', 'copa', 'pomp', 'bute', 'cope', 'eyey',
 'quat', 'emys', 'suit', 'wolf', 'alan', 'quar', 'copr', 'pome', 'alar', 'alas',
 'eyed', 'copt', 'butt', 'pech', 'puka', 'quag', 'copy', 'emyd', 'twit', 'eyen',
 'wide', 'sert', 'wert', 'hyla', 'gobi', 'hyle', 'oaty', 'gobo', 'serf', 'widu',
