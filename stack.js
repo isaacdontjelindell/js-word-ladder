@@ -31,7 +31,7 @@ function Stack() {
     }
 
     this.toString = function() {
-        str = 'BOTTOM \n';
+        str = "BOTTOM \n";
         for(var i=0; i<stack.length; i++) {
             str += stack[i] + "\n"
         }

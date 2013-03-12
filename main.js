@@ -2,6 +2,7 @@
 // JavaScript word ladder
 // https://github.com/isaacdontjelindell/js-word-ladder
 
+/* REQUIRES: stack.js, queue.js, set.js (or equivalent data structures) */
 
 /* TODO
    * Try using permutations algorithm - compare with possible permutations of each word
@@ -12,26 +13,33 @@ function wordLadder() {
     var data = getStartingData();
 
     if(data.error) {
-        console.log("Error: You chose to use " + data.len + "-letter words, but entered a starting or ending word that was not the correct length!");
-        return;
+        data.error = "Error: You chose to use " 
+                   + data.len 
+                   + "-letter words, but entered a starting or ending word that was not the correct length!";
     }
+    else {
 
-    data.used_words.add(data.start); 
+        data.used_words.add(data.start); 
     
-    var stack = new Stack(); // just an empty stack for now
-    stack.push(data.start);
+        var stack = new Stack(); // just an empty stack for now
+        stack.push(data.start);
 
-    findNextSteps(data, stack);
-    var ladder = iterate(data); // this should find us a valid ladder
-    if(!ladder) { 
-        console.log("Failed to find a valid ladder between " + data.start + " and " + data.end);
+        findNextSteps(data, stack);
+        var ladder = iterate(data); // this should find us a valid ladder
+        if(!ladder) { 
+            data.error = "Failed to find a valid ladder between " + data.start + " and " + data.end;
+        }
+        else {
+            data.error = undefined;
+            data.ladder = ladder
+        }
     }
-    else { console.log(ladder.toString()); }
+    showResults(data);
 }
 
 function findNextSteps(data, stack) {
-    //Get the starting word and search through the dictionary to find all words that
-    //are one letter different, and have not already been used. 
+    // Get the top word on the stack and search through the dictionary to find all
+    // words that are one letter different, and have not already been used. 
 
     // do the search:
     for(var i=0; i<data.dict.length; i++) {
@@ -50,7 +58,7 @@ function findNextSteps(data, stack) {
 function iterate(data) {
 
     while (!data.queue.isEmpty()) {
-        var current_stack = data.queue.dequeue(); //stack containing a possible ladder
+        var current_stack = data.queue.dequeue(); // stack containing a possible ladder
         var top_word = current_stack.peek();
 
         if(top_word == data.end) { return current_stack; } // found a valid ladder - we're done
@@ -96,10 +104,26 @@ function getStartingData() {
 
 function cloneStack(orig_stack) {
     // returns a clone (deep copy) of orig_stack.
-    // This uses some special methods in my stack class that kinda smell - TODO reevaluate??
+    // This uses some special methods in my stack class are pretty anti-OO - TODO reevaluate??
     var new_stack = new Stack();
     new_stack.setArray(orig_stack.asArray());
     return new_stack;
+}
+
+function showResults(data) {
+    if(data.error) {
+        document.getElementById("results").innerHTML = data.error;
+    }
+    else {
+        var ul = document.createElement("ul"); 
+        while(!data.ladder.isEmpty()) {    
+            var li = document.createElement("li");
+            li.innerHTML = data.ladder.pop()
+            ul.appendChild(li);
+        }
+        document.getElementById("results").innerHTML = ""; // clear any previous results
+        document.getElementById("results").appendChild(ul);
+    }
 }
 
 
