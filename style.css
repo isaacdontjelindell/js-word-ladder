@@ -1,0 +1,33 @@
+body {
+    width: 400px;
+    margin: 0px auto 0px auto;
+}
+
+#form {
+    float: left;
+    margin: 10px;
+    padding: 5px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+}
+
+#results {
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    width: 120px;
+    float: right;
+}
+
+#results ul {
+    list-style: none;
+    width: 50px;
+}
+#results li {
+    text-align: center;
+    border-style: solid;
+    border-width: 2px 0px 0px 0px;
+    width: 80px;
+}
+

@@ -121,6 +121,7 @@ function showResults(data) {
             li.innerHTML = data.ladder.pop()
             ul.appendChild(li);
         }
+        ul.appendChild(document.createElement("li"));
         document.getElementById("results").innerHTML = ""; // clear any previous results
         document.getElementById("results").appendChild(ul);
     }
