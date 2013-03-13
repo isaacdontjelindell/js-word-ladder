@@ -13,10 +13,18 @@ function wordLadder() {
     var data = getStartingData();
 
     if(data.error) {
-        data.error = "Error: You chose to use " 
-                   + data.len 
-                   + "-letter words, but entered a starting or ending word that was not the correct length!";
-    }
+        if(data.error == "same_word") {
+            data.error = "Don't be silly...those are the same words!";
+        }
+        if(data.error == "word_length") {
+            data.error = "Error: You chose to use " 
+                          + data.len 
+                          + "-letter words, but entered a starting or ending word that was not the correct length!";
+        }
+        if(data.error == "word_empty") {
+            data.error = "Error: One or more of the word fields is empty. You must enter a starting and ending word";
+        }
+   }
     else {
 
         data.used_words.add(data.start); 
@@ -85,7 +93,17 @@ function getStartingData() {
     data.start = document.getElementById("word1").value;
     data.end = document.getElementById("word2").value;
     data.len = parseInt(document.getElementById("length").value);
-    if ((data.start.length != data.len) || (data.end.length != data.len)) {
+    
+    // validate the inputs
+    if((data.start == "") || (data.end == "")) {
+        data.error = "word_empty";
+        return data;
+    }
+    else if(data.start == data.end) {
+        data.error = "same_word";
+        return data;
+    }
+    else if ((data.start.length != data.len) || (data.end.length != data.len)) {
         data.error = "word_length";
         return data;
     }
@@ -121,7 +139,9 @@ function showResults(data) {
             li.innerHTML = data.ladder.pop()
             ul.appendChild(li);
         }
-        ul.appendChild(document.createElement("li"));
+        var li = document.createElement("li");
+        li.innerHTML = "START"
+        ul.appendChild(li);
         document.getElementById("results").innerHTML = ""; // clear any previous results
         document.getElementById("results").appendChild(ul);
     }
