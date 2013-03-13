@@ -10,6 +10,10 @@
 </head>
 
 <body>
+    <div id="header">
+        <h2>JavaScript Word Ladder</h2>
+    </div>
+
     <div id="form">
         <form>
             Word 1: <input type="text" id="word1" value=""><br>
@@ -19,14 +23,21 @@
                 <option value="4">Four</option>
                 <option value="5">Five</option>
             </select><br>
-            <input type="button" value="Find word ladder" onclick="wordLadder()">
+            <input type="button" id="submit" value="Find word ladder" onclick="wordLadder()">
            
         </form>
 
+        <div id="instructions">
+            Instructions: Enter a starting and ending word. The two words must be the same length,
+            and must be either three, four, or five letters long. Click the "Find word ladder" button,
+            and this program will attempt to find a valid word ladder between the two words.
+            Be patient - this process can take a while!
+        </div>
     </div>
 
     <div id="results">
     </div>
+    
 
 </body>
 

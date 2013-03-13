@@ -1,18 +1,36 @@
 body {
-    width: 400px;
+    width: 500px;
     margin: 0px auto 0px auto;
+    background-color: #A4D1FF;
+}
+
+#header {
+    text-shadow: 4px 4px 7px rgba(150, 150, 150, 0.76);
+    margin: 10px 5px 5px 5px;
+    text-align: center;
 }
 
 #form {
+    box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.80);
+    background-color: #70B8FF;
     float: left;
     margin: 10px;
-    padding: 5px;
+    padding: 15px 15px 15px 15px;
     border-style: solid;
     border-width: 2px;
     border-radius: 5px;
+    width: 250px
+}
+
+#submit {
+    margin: 7px 0px 0px 0px;
 }
 
 #results {
+    box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.80);
+    background-color: #70B8FF;
+    margin: 10px;
+    padding: 15px;
     border-style: solid;
     border-width: 2px;
     border-radius: 5px;
@@ -22,12 +40,14 @@ body {
 
 #results ul {
     list-style: none;
-    width: 50px;
+    margin: 0px;
+    padding: 0px;
 }
+
 #results li {
     text-align: center;
     border-style: solid;
     border-width: 2px 0px 0px 0px;
-    width: 80px;
+    width: 120px;
 }
 
