@@ -17,12 +17,12 @@ function wordLadder() {
             data.error = "Don't be silly...those are the same words!";
         }
         if(data.error == "word_length") {
-            data.error = "Error: You chose to use " 
+            data.error = "<b>Error</b>: You chose to use " 
                           + data.len 
                           + "-letter words, but entered a starting or ending word that was not the correct length!";
         }
         if(data.error == "word_empty") {
-            data.error = "Error: One or more of the word fields is empty. You must enter a starting and ending word";
+            data.error = "<b>Error</b>: One or more of the word fields is empty. You must enter a starting and ending word";
         }
    }
     else {
